@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SuperMart Queue Simulator</title>
+    <link rel="stylesheet" href="style.css">
+    <div class="navigation">
+    <a href="index.html">Dashboard</a>
+    <a href="operations.html">History & Information</a>
+    </div>
+</head>
+<body>
+
+    <div class="header">
+        <h1>SuperMart Queue Simulator</h1>
+        <p>Supermarket Checkout Management System</p>
+    </div>
+
+    <div class="container">
+
+        <h2>Dashboard</h2>
+        <div class="dashboard">
+            <div class="card"><p>Total Customers</p><h2 id="totalCustomers">3</h2></div>
+            <div class="card"><p>Waiting Customers</p><h2 id="waitingCustomers">1</h2></div>
+            <div class="card"><p>Busy Counters</p><h2 id="busyCounters">2 / 4</h2></div>
+            <div class="card"><p>Available Counters</p><h2 id="availableCounters">2 / 4</h2></div>
+            <div class="card"><p>Completed Bills</p><h2 id="completedBills">0</h2></div>
+            <div class="card"><p>Average Waiting Time</p><h2 id="averageWait">2 min</h2></div>
+        </div>
+
+        <div class="section">
+            <h2>Add New Customer</h2>
+
+            <form id="customerForm">
+                <label for="customerName">Customer Name:</label>
+                <input type="text" id="customerName" placeholder="Enter customer name" required>
+
+                <label for="itemCount">Number of Items:</label>
+                <input type="number" id="itemCount" min="1" max="100" value="5" required>
+
+                <p class="priority-option">
+                    <input type="checkbox" id="isPriority">
+                    Priority Customer (Senior Citizen / Special Assistance)
+                </p>
+
+                <button type="submit">Add Customer</button>
+            </form>
+        </div>
+
+        <div class="section">
+            <h2>Simulation Controls</h2>
+
+            <button type="button" id="startButton">Start / Assign Customers</button>
+            <button type="button" id="completeButton">Complete Next Bill</button>
+            <button type="button" id="resetButton">Reset Simulation</button>
+
+            <p class="status">
+                Simulation Status:
+                <strong id="simulationStatus">Ready</strong>
+            </p>
+
+            <h3>Queue Rules</h3>
+            <p>
+                Priority customers are served before normal customers.
+                FIFO (First In, First Out) is followed within each group.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Checkout Counters</h2>
+            <p>There are four billing counters in the supermarket.</p>
+
+            <div id="counterGrid" class="counter-list">
+                <div class="counter available">
+                    <h3>Counter 1 - Available</h3>
+                    <p>No customer</p>
+                </div>
+
+                <div class="counter busy">
+                    <h3>Counter 2 - Busy</h3>
+                    <p>Rahul - 5 items</p>
+                </div>
+
+                <div class="counter available">
+                    <h3>Counter 3 - Available</h3>
+                    <p>No customer</p>
+                </div>
+
+                <div class="counter busy">
+                    <h3>Counter 4 - Busy</h3>
+                    <p>Aman - 3 items</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Customer Waiting Queue</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Position</th>
+                        <th>Customer</th>
+                        <th>Items</th>
+                        <th>Type</th>
+                        <th>Estimated Wait</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody id="queueTable">
+                    <tr>
+                        <td>1</td>
+                        <td>Priya</td>
+                        <td>6</td>
+                        <td>Normal</td>
+                        <td>2 min</td>
+                        <td>Waiting</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="note">
+                Waiting time is an estimate only for the simmulation
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>How the Simulator Works</h2>
+
+            <ol>
+                <li>Enter the customer's name and number of items.</li>
+                <li>Select the priority option if required.</li>
+                <li>Click Start / Assign Customers to send customers to free counters.</li>
+                <li>Click Complete Next Bill when billing is finished.</li>
+                <li>The next customer in the queue moves to the free counter.</li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h2>Project Information</h2>
+
+            <p><b>Queue Method:</b> Priority and FIFO</p>
+            <p><b>Total Counters:</b> 4</p>
+            <p><b>Waiting Time:</b> Estimated using queue position and items</p>
+            <p><b>Technology:</b> HTML, CSS and JavaScript</p>
+
+            <p class="note">
+                <h3>This is the simulation of a supermarket checkout queue management system.</h3>
+            </p>
+        </div>
+        <div class="section">
+            <h2>Lovely Professional University</h2>
+            <hr>
+            <H2><h3>Made with ❤️ by Team Alpha</h3> </H2>
+        </div>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
+
